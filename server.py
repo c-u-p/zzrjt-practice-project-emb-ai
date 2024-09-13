@@ -18,6 +18,8 @@ def sent_analyzer():
         score for the provided text.
     '''
     text_to_analyze = request.args.get('textToAnalyze')
+    if text_to_analyze == '':
+        return 'Please input some sentence!'
     response = sentiment_analyzer(text_to_analyze)
     label = response['label']
     score = response['score']
